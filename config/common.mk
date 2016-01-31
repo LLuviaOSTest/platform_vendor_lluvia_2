@@ -40,6 +40,9 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/yodita/prebuilt/common/etc/mkshrc:system/etc/mkshrc
 
+# Include LatinIME dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/yodita/overlay/dictionaries
+
 # Packages
 include vendor/yodita/config/packages.mk
 
