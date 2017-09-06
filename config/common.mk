@@ -32,3 +32,6 @@ PRODUCT_COPY_FILES += \
 
 # Packages
 include vendor/yodita/config/packages.mk
+
+# Version
+include vendor/yodita/config/version.mk 
