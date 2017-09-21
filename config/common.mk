@@ -22,9 +22,9 @@ PRODUCT_COPY_FILES += \
     vendor/yodita/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
     vendor/yodita/prebuilt/common/bin/sysinit:system/bin/sysinit
 
-# Init file
-PRODUCT_COPY_FILES += \
-    vendor/yodita/prebuilt/common/etc/init.local.rc:root/init.yodita.rc
+# Copy all Yodita specific init rc files
+$(foreach f,$(wildcard vendor/yodita/prebuilt/common/etc/init/*.rc),\
+	$(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
