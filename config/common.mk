@@ -44,6 +44,10 @@ endif
 PRODUCT_COPY_FILES += \
     vendor/yodita/config/permissions/yodita-power-whitelist.xml:system/etc/sysconfig/yodita-power-whitelist.xml
 
+# Google permissions
+PRODUCT_COPY_FILES += \
+    vendor/yodita/prebuilt/common/etc/permissions/privapp-permissions-elgoog.xml:system/etc/permissions/privapp-permissions-elgoog.xml
+
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
