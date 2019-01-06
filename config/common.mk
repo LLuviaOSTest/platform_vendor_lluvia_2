@@ -40,6 +40,10 @@ PRODUCT_COPY_FILES += \
     vendor/yodita/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
 endif
 
+# Power whitelist
+PRODUCT_COPY_FILES += \
+    vendor/yodita/config/permissions/yodita-power-whitelist.xml:system/etc/sysconfig/yodita-power-whitelist.xml
+
 # Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
 
