@@ -8,9 +8,24 @@ PRODUCT_PACKAGES += \
     SoundPickerPrebuilt \
     OverlayStub
 
+
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
+
+# Accents
+PRODUCT_PACKAGES += \
+    AccentColorYellowOverlay \
+    AccentColorVioletOverlay \
+    AccentColorTealOverlay \
+    AccentColorRedOverlay \
+    AccentColorQGreenOverlay \
+    AccentColorPinkOverlay \
+    AccentColorLightPurpleOverlay \
+    AccentColorIndigoOverlay \
+    AccentColorFlatPinkOverlay \
+    AccentColorCyanOverlay \
+    AccentColorBlueGrayOverlay
 
 # Extra tools
 PRODUCT_PACKAGES += \
