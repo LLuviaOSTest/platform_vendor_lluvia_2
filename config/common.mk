@@ -18,36 +18,36 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/yodita/overlay/common
 PRODUCT_COPY_FILES += \
     vendor/yodita/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/yodita/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/yodita/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
-    vendor/yodita/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/yodita/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh \
+    vendor/yodita/prebuilt/common/bin/blacklist:$(TARGET_COPY_OUT_SYSTEM)/addon.d/blacklist
 
 # Init banner
 PRODUCT_COPY_FILES += \
-    vendor/yodita/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner
+    vendor/yodita/prebuilt/common/etc/init.d/00banner:$(TARGET_COPY_OUT_SYSTEM)/etc/init.d/00banner
 
 # Copy all Yodita specific init rc files
 $(foreach f,$(wildcard vendor/yodita/prebuilt/common/etc/init/*.rc),\
-	$(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
+	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
 
 # LatinIME gesture typing
 ifeq ($(TARGET_ARCH),arm64)
 PRODUCT_COPY_FILES += \
-    vendor/yodita/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
-    vendor/yodita/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
+    vendor/yodita/prebuilt/common/lib64/libjni_latinime.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libjni_latinime.so \
+    vendor/yodita/prebuilt/common/lib64/libjni_latinimegoogle.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libjni_latinimegoogle.so
 else
 PRODUCT_COPY_FILES += \
-    vendor/yodita/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so \
-    vendor/yodita/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so
+    vendor/yodita/prebuilt/common/lib/libjni_latinime.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libjni_latinime.so \
+    vendor/yodita/prebuilt/common/lib/libjni_latinimegoogle.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libjni_latinimegoogle.so
 endif
 
 # Sysconfigs
 PRODUCT_COPY_FILES += \
-    vendor/yodita/prebuilt/common/sysconfig/yodita-power-whitelist.xml:system/etc/sysconfig/yodita-power-whitelist.xml \
-    vendor/yodita/prebuilt/common/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
+    vendor/yodita/prebuilt/common/sysconfig/yodita-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/yodita-power-whitelist.xml \
+    vendor/yodita/prebuilt/common/sysconfig/dialer_experience.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/dialer_experience.xml
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    vendor/yodita/prebuilt/common/etc/permissions/privapp-permissions-elgoog.xml:system/etc/permissions/privapp-permissions-elgoog.xml
+    vendor/yodita/prebuilt/common/etc/permissions/privapp-permissions-elgoog.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-elgoog.xml
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
