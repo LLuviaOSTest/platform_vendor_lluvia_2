@@ -97,3 +97,6 @@ include vendor/yodita/config/props.mk
 
 # Telephony
 include vendor/yodita/config/telephony.mk
+
+# Fonts
+include vendor/yodita/config/fonts.mk 
