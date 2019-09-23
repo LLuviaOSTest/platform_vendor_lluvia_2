@@ -1,6 +1,7 @@
-#!/bin/bash
+/#!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2019 Yodita
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,7 +47,7 @@ trap cleanup 0
 #
 # $1: device name
 # $2: vendor name
-# $3: Lineage root directory
+# $3: Yodita root directory
 # $4: is common device - optional, default to false
 # $5: cleanup - optional, default to true
 # $6: custom vendor makefile name - optional, default to false
@@ -654,16 +655,16 @@ function write_header() {
             printf "# Copyright (C) 2016 The CyanogenMod Project\n" > $1
         fi
         if [ $YEAR -eq 2017 ]; then
-            printf "# Copyright (C) 2017 The LineageOS Project\n" >> $1
+            printf "# Copyright (C) 2017 The Yodita Project\n" >> $1
         elif [ $INITIAL_COPYRIGHT_YEAR -eq $YEAR ]; then
-            printf "# Copyright (C) $YEAR The LineageOS Project\n" >> $1
+            printf "# Copyright (C) $YEAR The Yodita Project\n" >> $1
         elif [ $INITIAL_COPYRIGHT_YEAR -le 2017 ]; then
-            printf "# Copyright (C) 2017-$YEAR The LineageOS Project\n" >> $1
+            printf "# Copyright (C) 2017-$YEAR The Yodita Project\n" >> $1
         else
-            printf "# Copyright (C) $INITIAL_COPYRIGHT_YEAR-$YEAR The LineageOS Project\n" >> $1
+            printf "# Copyright (C) $INITIAL_COPYRIGHT_YEAR-$YEAR The Yodita Project\n" >> $1
         fi
     else
-        printf "# Copyright (C) $YEAR The LineageOS Project\n" > $1
+        printf "# Copyright (C) $YEAR The Yodita Project\n" > $1
     fi
 
     cat << EOF >> $1
@@ -894,7 +895,7 @@ function get_file() {
 # Convert apk|jar .odex in the corresposing classes.dex
 #
 function oat2dex() {
-    local LINEAGE_TARGET="$1"
+    local YODITA_TARGET="$1"
     local OEM_TARGET="$2"
     local SRC="$3"
     local TARGET=
@@ -902,17 +903,16 @@ function oat2dex() {
     local HOST="$(uname)"
 
     if [ -z "$BAKSMALIJAR" ] || [ -z "$SMALIJAR" ]; then
-
-        export BAKSMALIJAR="$YODITA_ROOT"/vendor/yodita/build/tools/smali/baksmali.jar
-        export SMALIJAR="$YODITA_ROOT"/vendor/yodita/build/tools/smali/smali.jar
+        export BAKSMALIJAR="$YODITA_ROOT"/prebuilts/tools-lineage/common/smali/baksmali.jar
+        export SMALIJAR="$YODITA_ROOT"/prebuilts/tools-lineage/common/smali/smali.jar
     fi
 
     if [ -z "$VDEXEXTRACTOR" ]; then
-        export VDEXEXTRACTOR="$YODITA_ROOT"/vendor/yodita/build/tools/"$HOST"/vdexExtractor
+        export VDEXEXTRACTOR="$YODITA_ROOT"/prebuilts/tools-lineage/"${HOST,,}"-x86/bin/vdexExtractor
     fi
 
     if [ -z "$CDEXCONVERTER" ]; then
-        export CDEXCONVERTER="$YODITA_ROOT"/vendor/yodita/build/tools/"$HOST"/compact_dex_converter
+        export CDEXCONVERTER="$YODITA_ROOT"/prebuilts/tools-lineage/"${HOST,,}"-x86/bin/compact_dex_converter
     fi
 
     # Extract existing boot.oats to the temp folder
@@ -932,11 +932,11 @@ function oat2dex() {
         FULLY_DEODEXED=1 && return 0 # system is fully deodexed, return
     fi
 
-    if [ ! -f "$LINEAGE_TARGET" ]; then
+    if [ ! -f "$YODITA_TARGET" ]; then
         return;
     fi
 
-    if grep "classes.dex" "$LINEAGE_TARGET" >/dev/null; then
+    if grep "classes.dex" "$YODITA_TARGET" >/dev/null; then
         return 0 # target apk|jar is already odexed, return
     fi
 
@@ -964,7 +964,7 @@ function oat2dex() {
                 java -jar "$BAKSMALIJAR" deodex -o "$TMPDIR/dexout" -b "$BOOTOAT" -d "$TMPDIR" "$TMPDIR/$(basename "$OAT")"
                 java -jar "$SMALIJAR" assemble "$TMPDIR/dexout" -o "$TMPDIR/classes.dex"
             fi
-        elif [[ "$LINEAGE_TARGET" =~ .jar$ ]]; then
+        elif [[ "$YODITA_TARGET" =~ .jar$ ]]; then
             JAROAT="$TMPDIR/system/framework/$ARCH/boot-$(basename ${OEM_TARGET%.*}).oat"
             JARVDEX="/system/framework/boot-$(basename ${OEM_TARGET%.*}).vdex"
             if [ ! -f "$JAROAT" ]; then
@@ -1277,7 +1277,7 @@ function extract() {
             printf '    + keeping pinned file with hash %s\n' "${HASH}"
         else
             FOUND=false
-            # Try Lineage target first.
+            # Try Yodita target first.
             # Also try to search for files stripped of
             # the "/system" prefix, if we're actually extracting
             # from a system image.
