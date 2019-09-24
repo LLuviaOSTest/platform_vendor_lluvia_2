@@ -19,8 +19,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
 PRODUCT_COPY_FILES += \
-    vendor/yodita/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/yodita/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/yodita/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner
 
 # Copy all Yodita specific init rc files
 $(foreach f,$(wildcard vendor/yodita/prebuilt/common/etc/init/*.rc),\
