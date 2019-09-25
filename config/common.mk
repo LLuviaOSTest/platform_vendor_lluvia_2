@@ -56,8 +56,8 @@ endif
 
 # Sysconfigs
 PRODUCT_COPY_FILES += \
-    vendor/yodita/prebuilt/common/sysconfig/yodita-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/yodita-power-whitelist.xml \
-    vendor/yodita/prebuilt/common/sysconfig/dialer_experience.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/dialer_experience.xml
+    vendor/yodita/prebuilt/common/etc/sysconfig/yodita-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/yodita-power-whitelist.xml \
+    vendor/yodita/prebuilt/common/etc/sysconfig/dialer_experience.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/dialer_experience.xml
 
 # Permissions
 PRODUCT_COPY_FILES += \
