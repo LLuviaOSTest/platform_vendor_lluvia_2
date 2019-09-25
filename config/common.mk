@@ -65,3 +65,6 @@ include vendor/yodita/config/packages.mk
 
 # Version
 include vendor/yodita/config/version.mk 
+
+# Props
+include vendor/yodita/config/props.mk
