@@ -1,6 +1,7 @@
 # Required packages
 PRODUCT_PACKAGES += \
     Bromite \
+    GalleryGoPrebuilt \
     SimpleGallery \
     LatinIME \
     LatinIMEGooglePrebuilt \
