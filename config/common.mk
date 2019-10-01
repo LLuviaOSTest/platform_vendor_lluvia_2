@@ -77,6 +77,10 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 # Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
 
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Settings \
+    SystemUI
+
 # Packages
 include vendor/yodita/config/packages.mk
 
