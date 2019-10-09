@@ -35,10 +35,6 @@ PRODUCT_COPY_FILES += \
     vendor/yodita/prebuilt/common/bin/50-base.sh:$(TARGET_COPY_OUT_SYSTEM)/addon.d/50-base.sh \
     vendor/yodita/prebuilt/common/bin/blacklist:$(TARGET_COPY_OUT_SYSTEM)/addon.d/blacklist
 
-# Init banner
-PRODUCT_COPY_FILES += \
-    vendor/yodita/prebuilt/common/etc/init.d/00banner:$(TARGET_COPY_OUT_SYSTEM)/etc/init.d/00banner
-
 # Copy all Yodita specific init rc files
 $(foreach f,$(wildcard vendor/yodita/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
