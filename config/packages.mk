@@ -25,7 +25,8 @@ PRODUCT_PACKAGES += \
     AccentColorIndigoOverlay \
     AccentColorFlatPinkOverlay \
     AccentColorCyanOverlay \
-    AccentColorBlueGrayOverlay
+    AccentColorBlueGrayOverlay \
+    AccentColorMintOverlay    
 
 # Extra tools
 PRODUCT_PACKAGES += \
