@@ -5,7 +5,8 @@ PRODUCT_PACKAGES += \
     LatinIMEGooglePrebuilt \
     Lawnchair \
     messaging \
-    SoundPickerPrebuilt
+    SoundPickerPrebuilt \
+    OverlayStub
 
 # Charger
 PRODUCT_PACKAGES += \
