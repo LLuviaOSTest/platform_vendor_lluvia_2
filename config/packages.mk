@@ -6,8 +6,8 @@ PRODUCT_PACKAGES += \
     Lawnchair \
     messaging \
     SoundPickerPrebuilt \
-    OverlayStub
-
+    OverlayStub \
+    ThemePicker
 
 # Charger
 PRODUCT_PACKAGES += \
