@@ -3,8 +3,10 @@ PRODUCT_PACKAGES += \
     Bromite \
     SimpleGallery \
     LatinIME \
+    LatinIMEGooglePrebuilt \
     Lawnchair \
-    messaging
+    messaging \
+    SoundPickerPrebuilt
 
 # Charger
 PRODUCT_PACKAGES += \
