@@ -7,4 +7,5 @@ PRODUCT_COPY_FILES += \
 
 # Fonts required overlays packages
 PRODUCT_PACKAGES += \
-    FontRobotoCondensed
+    FontRobotoCondensed \
+    FontBariol

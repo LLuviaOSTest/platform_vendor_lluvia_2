@@ -46,4 +46,18 @@
       <font weight="700" style="italic">Arvo-BoldItalic.ttf</font>
     </family>
     <alias name="arvo-bold" to="arvo" weight="700" />
+    
+    <family customizationType="new-named-family" name="bariol">
+        <font weight="100" style="normal">BariolThin.ttf</font>
+        <font weight="100" style="italic">BariolThinItalic.ttf</font>
+        <font weight="300" style="normal">BariolLight.ttf</font>
+        <font weight="300" style="italic">BariolLightItalic.ttf</font>
+        <font weight="400" style="normal">BariolRegular.ttf</font>
+        <font weight="400" style="italic">BariolRegularItalic.ttf</font>
+        <font weight="500" style="normal">BariolBold.ttf</font>
+        <font weight="500" style="italic">BariolBoldItalic.ttf</font>        
+        <font weight="700" style="normal">BariolBold.ttf</font>
+        <font weight="700" style="italic">BariolBoldItalic.ttf</font>
+    </family>
+    <alias name="bariol-medium" to="bariol" weight="500" />            
 </fonts-modification>
