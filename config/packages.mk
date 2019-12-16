@@ -1,5 +1,7 @@
 # Required packages
 PRODUCT_PACKAGES += \
+    Bromite \
+    SimpleGallery \
     LatinIME \
     Launcher3QuickStep \
     messaging
