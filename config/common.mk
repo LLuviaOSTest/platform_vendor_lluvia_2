@@ -28,6 +28,9 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/yodita/overlay/dictionaries
 # Common overlays
 PRODUCT_PACKAGE_OVERLAYS += vendor/yodita/overlay/common
 
+# Lawnchair overlays
+PRODUCT_PACKAGE_OVERLAYS += vendor/yodita/overlay/lawnchair
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/yodita/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
@@ -60,11 +63,13 @@ endif
 # Sysconfigs
 PRODUCT_COPY_FILES += \
     vendor/yodita/prebuilt/common/etc/sysconfig/yodita-power-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/yodita-power-whitelist.xml \
-    vendor/yodita/prebuilt/common/etc/sysconfig/dialer_experience.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/dialer_experience.xml
+    vendor/yodita/prebuilt/common/etc/sysconfig/dialer_experience.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/dialer_experience.xml \
+    vendor/yodita/prebuilt/common/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/lawnchair-hiddenapi-package-whitelist.xml
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    vendor/yodita/prebuilt/common/etc/permissions/privapp-permissions-elgoog.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-elgoog.xml
+    vendor/yodita/prebuilt/common/etc/permissions/privapp-permissions-elgoog.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-elgoog.xml \
+    vendor/yodita/prebuilt/common/etc/permissions/privapp-permissions-lawnchair.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-lawnchair.xml
 
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
