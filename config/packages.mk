@@ -3,6 +3,7 @@ PRODUCT_PACKAGES += \
     Bromite \
     SimpleGallery \
     LatinIME \
+    Lawnchair \
     messaging
 
 # Charger
