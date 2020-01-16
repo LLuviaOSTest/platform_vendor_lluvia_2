@@ -2,8 +2,6 @@
 PRODUCT_PACKAGES += \
     Bromite \
     GalleryGoPrebuilt \
-    SimpleGallery \
-    LatinIME \
     LatinIMEGooglePrebuilt \
     Lawnchair \
     messaging \
