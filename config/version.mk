@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # Yodita versioning
-YODITA_VERSION = 1.0
+YODITA_VERSION = 1.2
 
 TARGET_PRODUCT_SHORT := $(subst yodita_,,$(YODITA_BUILD))
 
