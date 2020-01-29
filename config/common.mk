@@ -87,3 +87,6 @@ include vendor/yodita/config/props.mk
 
 # Telephony
 include vendor/yodita/config/telephony.mk
+
+# Themes and overlays
+include vendor/themes/themes.mk
